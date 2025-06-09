@@ -10,7 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:3000") // allow React frontend to call backend
+// Allow requests from localhost (dev) and your deployed frontend domain
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "https://employee-management-frontend-sigma.vercel.app"
+})
 public class EmployeeController {
 
     @Autowired
